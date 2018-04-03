@@ -8,65 +8,55 @@ package calculatoroop;
  * todo javadoc
  */
 
-import sun.plugin2.message.*;
+import java.util.*;
+public class Calculator {
 
-import java.util.Scanner;
-public class calculator {
+    private static Scanner scanner;
+
     public static void main(String[] args) {
-        //Scanner scanner = new Scanner(System.in);
-        //String i = scanner.next();
-        //String j = scanner.next();
-        //Float a = Float.parseFloat(i);
-        //Float b = Float.parseFloat(j);
+        scanner = new Scanner(System.in);
 
-        //System.out.printf("%.4f", a+b);
-        //scanner.close();
         float result;
-        float num1 = GetFloat();
-        float num2 = GetFloat();
-        //GetOperation();
-        switch (GetOperation()){
-            case "+":
-                result = Addition();
+        float num1 = getFloat();
+        float num2 = getFloat();
+        //getOperation();
+        switch (getOperation()){
+            case '+':
+                result = addition(num1, num2);
                 System.out.printf("%.4f", result);
                 break;
-            case "-":
-                result = Substraction();
+            case '-':
+                result = Substraction(num1, num2);
                 System.out.printf("%.4f", result);
                 break;
-            case "*":
-                result = Multiplication();
+            case '*':
+                result = Multiplication(num1, num2);
                 System.out.printf("%.4f", result);
                 break;
-            case "/":
-                result = Division();
+            case '/':
+                result = Division(num1, num2);
                 System.out.printf("%.4f", result);
                 break;
 
         }
-
+        scanner.close();
 
     }
-    public static float GetFloat(){
+    public static float getFloat(){
         System.out.println("Введите число");
-        Scanner scanner = new Scanner(System.in);
         String i = scanner.next();
         Float num = Float.parseFloat(i);
-        scanner.close();
         return num;
     }
 
-    public static String GetOperation(){
+    public static char getOperation(){
         System.out.println("Введите знак операции (+, -, *, /)");
         String operation;
-        Scanner scanner = new Scanner(System.in);
-        String i = scanner.next();
-        operation = GetOperation();
-        scanner.close();
-        return operation;
+        operation = scanner.next();
+        return operation.charAt(0);
     }
 
-    public static float Addition(float num1, float num2){
+    public static float addition(float num1, float num2){
         float sum;
         sum = num1 + num2;
         return sum;
