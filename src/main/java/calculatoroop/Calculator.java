@@ -1,12 +1,5 @@
 package calculatoroop;
 
-/**
- * Created by IntelliJ IDEA.<br>
- * User: Alexey<br>
- * Date: 02.04.2018<br>
- * Time: 1:09<br>
- * todo javadoc
- */
 
 import java.util.*;
 public class Calculator {
